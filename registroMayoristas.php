@@ -11,7 +11,7 @@
 
 <div class="formularioRegistro">
 
-    <form action="#" id="registro_mayorista" method="$_POST">
+    <form action="#" id="registro_mayorista" id="mayoristas">
       
       <legend>Añadir un Mayorista <span>Todos los campos son obligatorios</span> </legend>
 
@@ -120,13 +120,13 @@
                                         
                                         
                     <td class="acciones">
-                        <a href="" class="btn btn-editar">
-                            <i class="fas fa-pen-square"></i>
-                        </a>
+                      <a href="editar-perfil.php?id=<?php echo $mayorista['id']; ?>" class="btn btn-editar">
+                        <i class="fas fa-pen-square"></i>
+                      </a>
 
-                        <button data-id="" class="btn-borrar btn" type="button">
-                            <i class="fas fa-trash"></i>
-                        </button>
+                      <button data-id="<?php echo $mayorista['id']; ?>" class="btn-borrar btn" type="button">
+                        <i class="fas fa-trash"></i>
+                      </button>
                     </td>
                     
                     </tr>

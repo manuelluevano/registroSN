@@ -10,6 +10,12 @@ function eventListeners() {
     // Cuando el formulario de crear o editar se ejecuta
     formularioMayorista.addEventListener('submit', leerFormulario);
 
+    // Listener para eliminar el boton 
+    // Si existe o el programa pide la funcion ejecutar, si no no
+    if(listadoMayoristas){
+        //Listener para elminar al precionar el boton
+        listadoMayoristas.addEventListener('click', eliminarMayorista);
+    }
     }
 
 
@@ -52,13 +58,13 @@ function leerFormulario(e) {
 
             if(accion === 'crearMayorista'){
                 // Pasamos la información a la funcion para el llamado de ajax
-                // console.log('correcto');
+                 console.log('correcto');
 
                 insertarDB(infoMayorista);
                 
 
             }else{
-                console.log('error');
+                // console.log('error');
             }
 
            
@@ -66,7 +72,7 @@ function leerFormulario(e) {
         }
    }
    
-
+// Insertar nuevo elemento
 function insertarDB(infoMayorista){
 
     //Llamado a ajax
@@ -152,7 +158,7 @@ function insertarDB(infoMayorista){
                 document.querySelector('form').reset();
                         
                 /* MOSTRAR LA NOTIFICACIÓN AL AGREGAR UN PERFIL NUEVO */ 
-                mostrarNotificaciones();
+                mostrarNotificaciones('Mayorista agregado exitosamente!', 'alert-success');
 
         
             }
@@ -164,18 +170,95 @@ function insertarDB(infoMayorista){
 
 }
 
+// Eliminar registro
+// Función eliminar contacto
+function eliminarMayorista(e){
+    // Para ver por consola el elemento al cual le diste click
+                        //ParentElement,para seleccionar el padre del elemento y verificar si existe
+                        // Devolverá true si existe, false si no 
+    //console.log(e.target.parentElement.classList.contains('btn-borrar'));
+
+    // Tomar el id 
+    
+    if(e.target.parentElement.classList.contains('btn-borrar') ){
+        //Tomar id
+        const id = e.target.parentElement.getAttribute('data-id');
+        console.log(id);
+
+        // Preguntar al usuario
+        const respuesta = confirm('Estas segur@ ?');
+
+        if(respuesta){
+        console.log('Sí, estoy seguro');
+    
+        // console.log('Lo pensaré');
+
+        // Llamado a ajax
+
+        //Crear el objeto
+        const xhr = new XMLHttpRequest();
+
+        //abrir la conexion  | |  mandaremos la información por GET
+        xhr.open('GET', `includes/modelos/modeloMayoristas.php?id=${id}&accion=borrar`, true);
+
+        //leer la informacion
+        xhr.onload = function()  {  
+            if(this.status === 200){
+                const resultado = JSON.parse(xhr.responseText);
+
+                console.log(resultado);
+
+                if(resultado.respuesta === 'correcto'){
+
+                    // Eliminamos el registro del DOM -> ajax
+
+                    //Vemos el elemento seleccionado
+                    console.log(e.target.parentElement.parentElement.parentElement);
+
+                    //Eliminamos el registro
+                    const deleteRegistro = e.target.parentElement.parentElement.parentElement;
+
+                    deleteRegistro.remove();
+
+                    // Mostramos una notificación, si algo esta bien
+                    mostrarNotificaciones('Mayorista Eliminado', 'alert-info');
+
+
+                }else{
+
+                    // Mostramos una notificación, si algo esta mal
+
+                    mostrarNotificaciones('Hubo un error al eliminar el elemento', 'alert-danger');
+                }
+
+
+            }
+        }
+
+        //enviar la petición
+        xhr.send();
+
+    }
+
+    }
+
+    
+
+    
+}
+
 // //Notifiación en pantalla
- function mostrarNotificaciones(){
+function mostrarNotificaciones(mensaje, clase){
 
     console.log('correcto');
 
     const notificacion = document.createElement('div');
     // Agregamos la clase
-    notificacion.classList.add('alert', 'alert-success', 'alert-dismissable');
+    notificacion.classList.add('alert', clase, 'alert-dismissable');
 
     // Creamos el Strong
     const strong = document.createElement('strong');
-        strong.textContent = 'Contacto Creado';
+        strong.textContent = mensaje;
 
     //Agregar los hijos al padre
     notificacion.appendChild(strong);
