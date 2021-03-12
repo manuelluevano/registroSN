@@ -151,11 +151,56 @@ function insertarDB(infoMayorista){
                 /* RESETEAR EL FORMULARIO DESPUÉS DE AGREGAR LA INFO  */
                 document.querySelector('form').reset();
                         
+                /* MOSTRAR LA NOTIFICACIÓN AL AGREGAR UN PERFIL NUEVO */ 
+                mostrarNotificaciones();
+
+        
             }
 
-            }
+    }
         
     //Enviar los datos
     xhr.send(infoMayorista);
 
 }
+
+// //Notifiación en pantalla
+ function mostrarNotificaciones(){
+
+    console.log('correcto');
+
+    const notificacion = document.createElement('div');
+    // Agregamos la clase
+    notificacion.classList.add('alert', 'alert-success', 'alert-dismissable');
+
+    // Creamos el Strong
+    const strong = document.createElement('strong');
+        strong.textContent = 'Contacto Creado';
+
+    //Agregar los hijos al padre
+    notificacion.appendChild(strong);
+
+
+    // Lugar donde insertar el mensaje
+    formularioMayorista.insertBefore(notificacion, document.querySelector('.notificacion'));
+
+    //Ocultar y mostrar la notificación
+     setTimeout(() => {
+        notificacion.classList.add('visible');
+
+        setTimeout(() => {
+        notificacion.classList.remove('visible');
+    //     //Despues de los 3 segundos elminamos el div.notificacion para que no se amontonen
+    //     // A esto se le conoce como garbage collector -> esto es que javascript elimina lo que ya no necesita
+    //     //   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management 
+             setTimeout(() => {
+                 notificacion.remove();
+
+             }, 500)
+         }, 3000)
+     }, 100);
+    
+    
+
+
+ }

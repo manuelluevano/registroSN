@@ -12,6 +12,10 @@
 <div class="formularioRegistro">
 
     <form action="#" id="registro_mayorista" method="$_POST">
+      
+      <legend>Añadir un Mayorista <span>Todos los campos son obligatorios</span> </legend>
+
+    <div class="notificacion"></div>
 
     <div class="campo">
         <label for="nombre">Nombre(s):</label>
@@ -45,9 +49,12 @@
         <input type="date" id="fecha">
     </div>
     <input type="hidden" id="accion" value="crearMayorista">
-    <input type="submit" value="Guardar">
+    <input type="submit" value="Guardar" class="btn btn-primary">
 
     </form>
+
+    
+
 </div>
 
 <!-- | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | -->
