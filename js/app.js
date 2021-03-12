@@ -65,12 +65,57 @@ function leerFormulario(e) {
 
             }else{
                 // console.log('error');
+
+                // edita el contacto
+                // leer el id
+
+                const idRegistrado = document.querySelector('#id').value;
+                infoMayorista.append('id', idRegistrado);
+                actualizarRegistro(infoMayorista);
+
             }
 
            
 
         }
    }
+
+
+// actualizar registros
+function actualizarRegistro(infoMayorista){
+  // console.log(...infoContacto);
+
+    // Crear objeto ajax
+    const xhr = new XMLHttpRequest();
+    
+    // abrir la conexion
+    xhr.open('POST', 'includes/modelos/modeloMayoristas.php', true);
+
+    //leer la respuesta
+    xhr.onload = function()  {  
+        if(this.status === 200){
+            const resultado = JSON.parse(xhr.responseText);
+
+            // console.log(respuesta);
+            if(resultado.respuesta === 'correcto'){
+                // Mostar noptificación si es correcto
+                mostrarNotificaciones('Contacto Editado correctamente', 'alert-success');
+
+             }else{
+                // Mostar noptificación si NO es correcto
+                mostrarNotificaciones('No editaste ningun dato', 'alert-danger');
+             }
+
+             // Después de 3 segundos redireccionar a la página de inicio
+             setTimeout(() => {
+                 window.location.href = 'index.php';
+             }, 4000);
+        }
+    }
+    //enviar la peticion
+    xhr.send(infoMayorista);
+}
+
    
 // Insertar nuevo elemento
 function insertarDB(infoMayorista){
