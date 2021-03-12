@@ -9,47 +9,15 @@
     
     <h2>Registro Mayoristas</h2>
 
-<div class="formularioRegistro">
+<div class="formularioRegistroMayorista">
 
     <form action="#" id="registro_mayorista" id="mayoristas">
       
       <legend>Añadir un Mayorista <span>Todos los campos son obligatorios</span> </legend>
 
-    <div class="notificacion"></div>
-
-    <div class="campo">
-        <label for="nombre">Nombre(s):</label>
-        <input type="text" placeholder="Nombre cliente" id="nombre">
-    </div>
-    
-
-    <div class="campo">
-        <label for="apellido">Apellido(s):</label>
-        <input type="text" placeholder="Apellido cliente" id="apellido">
-    </div>
-
-    <div class="campo">
-        <label for="email">Email:</label>
-        <input type="text" placeholder="Correo Electronico" id="email">
-    </div>
-
-    <div class="campo">
-        <label for="telefono">Telefono:</label>
-        <input type="number" placeholder="Telefono cliente" id="telefono">
-    </div>
-    
-    <div class="campo">
-        <label for="domicilio">Domicilio Local:</label>
-        <input type="text" placeholder="Domicilio cliente" id="domicilio">
-    </div>
-    
-
-    <div class="campo">
-        <label for="fecha">Fecha registro:</label>
-        <input type="date" id="fecha">
-    </div>
-    <input type="hidden" id="accion" value="crearMayorista">
-    <input type="submit" value="Guardar" class="btn btn-primary">
+      <?php 
+        include 'includes/templates/formularioMayoristas.php';
+      ?>  
 
     </form>
 
@@ -120,7 +88,7 @@
                                         
                                         
                     <td class="acciones">
-                      <a href="editar-perfil.php?id=<?php echo $mayorista['id']; ?>" class="btn btn-editar">
+                      <a href="editarMayoristas.php?id=<?php echo $mayorista['id']; ?>" class="btn btn-editar">
                         <i class="fas fa-pen-square"></i>
                       </a>
 
