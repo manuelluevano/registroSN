@@ -1,21 +1,30 @@
 //  Traemos los datos del formulario
 const formularioMayorista = document.querySelector('#registro_mayorista'),
-    listadoMayoristas = document.querySelector('#listado_mayoristas tbody');
+      listadoMayoristas = document.querySelector('#listado_mayoristas tbody'),
+      inputBuscador = document.querySelector('#buscar');
+
 
 
 eventListeners();
 
 function eventListeners() {
 
+    if(formularioMayorista){
+       
     // Cuando el formulario de crear o editar se ejecuta
     formularioMayorista.addEventListener('submit', leerFormulario);
-
+    }
     // Listener para eliminar el boton 
     // Si existe o el programa pide la funcion ejecutar, si no no
     if(listadoMayoristas){
         //Listener para elminar al precionar el boton
         listadoMayoristas.addEventListener('click', eliminarMayorista);
     }
+
+    // Buscador de perfiles 
+    inputBuscador.addEventListener('input', buscarContactos);
+
+
     }
 
 
@@ -212,6 +221,32 @@ function insertarDB(infoMayorista){
         
     //Enviar los datos
     xhr.send(infoMayorista);
+
+}
+
+// Buscador de contactos
+
+function buscarContactos(e){
+    // De esta forma por consola pasamos lo que vamos escribiendo en el input, ignoramos mayusculas y minusculas con "i"
+     console.log(e.target.value);
+
+    const expresion = new RegExp(e.target.value, "i"),
+            registros = document.querySelectorAll('tbody tr');
+
+            // Ocultamos los registros
+            registros.forEach(registro => {
+                 registro.style.display = 'none';
+                // siempre es importante ver por consola en que ubicación viene la información textcontent,en este caso número[5]
+                 console.log(registro.childNodes[5].textContent);
+
+                // Childnodes[]- buscamos el hijo donde se aloje la informacion que necesitamos
+                // replace() - para tomar en cuenta los espacios en blanco para 2 nombres  
+                 if(registro.childNodes[5].textContent.replace(/\s/g, " ").search(expresion) != -1){
+                    // table-row - ya que se trata de una tabla y se acomoda correctamente
+                    //- block en elementos distintos a tablas
+                     registro.style.display = 'table-row';
+                 }
+             })
 
 }
 

@@ -66,12 +66,7 @@
 
                                   foreach($mayoristas as $mayorista){?>  
 
-                                      <tr>
-                                        <!-- PARA VER EL NOMBRE DE LOS CAMPOS Y ASÍ HACER LA PETICIÓN-->
-                                        <!-- <pre>
-                                          <?php //var_dump($contacto); ?>
-                                        </pre> 
-                                        <!-- CIERRE PARA VER NOMBRES DE LOS CAMPOS -->
+                                     
                  <tr>
                      <!-- PARA VER EL NOMBRE DE LOS CAMPOS Y ASÍ HACER LA PETICIÓN-->
                      <!-- <pre>
