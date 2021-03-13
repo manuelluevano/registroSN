@@ -24,6 +24,7 @@ function eventListeners() {
     // Buscador de perfiles 
     inputBuscador.addEventListener('input', buscarContactos);
 
+    numeroMayoristas();
 
     }
 
@@ -214,7 +215,8 @@ function insertarDB(infoMayorista){
                 /* MOSTRAR LA NOTIFICACIÓN AL AGREGAR UN PERFIL NUEVO */ 
                 mostrarNotificaciones('Mayorista agregado exitosamente!', 'alert-success');
 
-        
+                // Una vez insertamos el usuario mandamos llamar el metodo para actualizar el contador
+                numeroMayoristas();
             }
 
     }
@@ -228,7 +230,7 @@ function insertarDB(infoMayorista){
 
 function buscarContactos(e){
     // De esta forma por consola pasamos lo que vamos escribiendo en el input, ignoramos mayusculas y minusculas con "i"
-     console.log(e.target.value);
+    // console.log(e.target.value);
 
     const expresion = new RegExp(e.target.value, "i"),
             registros = document.querySelectorAll('tbody tr');
@@ -237,7 +239,7 @@ function buscarContactos(e){
             registros.forEach(registro => {
                  registro.style.display = 'none';
                 // siempre es importante ver por consola en que ubicación viene la información textcontent,en este caso número[5]
-                 console.log(registro.childNodes[5].textContent);
+                 //console.log(registro.childNodes[5].textContent);
 
                 // Childnodes[]- buscamos el hijo donde se aloje la informacion que necesitamos
                 // replace() - para tomar en cuenta los espacios en blanco para 2 nombres  
@@ -246,8 +248,31 @@ function buscarContactos(e){
                     //- block en elementos distintos a tablas
                      registro.style.display = 'table-row';
                  }
+                
+                 // Mandamos llamar la funcion para actualizar el buscador
+                 numeroMayoristas();
              })
 
+}
+
+// buscador de registros
+function numeroMayoristas(){
+    const totalMayoristas = document.querySelectorAll('tbody tr'),
+    //Guardamos la ubicación donde se mostrará
+    contenedorNumero = document.querySelector('.total_mayoristas span');
+    // console.log(totalContactos.length);
+
+    let total = 0;
+
+    totalMayoristas.forEach(contacto=> {
+        if(contacto.style.display === '' || contacto.style.display === 'table-row'){
+            total++;
+        }
+    });
+
+    // console.log(total);
+
+    contenedorNumero.textContent = total;
 }
 
 // Eliminar registro
@@ -303,7 +328,9 @@ function eliminarMayorista(e){
                     // Mostramos una notificación, si algo esta bien
                     mostrarNotificaciones('Mayorista Eliminado', 'alert-info');
 
-
+                        // Una vez insertamos el usuario mandamos llamar el metodo para actualizar el contador
+                        numeroMayoristas();
+                        
                 }else{
 
                     // Mostramos una notificación, si algo esta mal

@@ -33,7 +33,7 @@
 
             <input type="text" id="buscar" class="buscador sombra" placeholder="Buscar contactos">
 
-            <p class="total_perfiles">Total Mayoristas  <span>2</span></p>        
+            <p class="total_mayoristas">Total Mayoristas  <span>2</span></p>        
 
         <div class="contenedor-tabla">
           <table id="listado_mayoristas">
