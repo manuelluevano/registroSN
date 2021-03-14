@@ -66,6 +66,62 @@
 
 <a href="listaSN.php">Ir</a>
 
+
+
+<section class="seccion">
+    <h2>Informacion de sn</h2>
+
+    <?php
+        try{
+            require_once('includes/funciones/db.php');
+            $sql = " SELECT `id_sn`, `nombre`, `modelo`, `numeroSerie`, `metodo`, `fechaRegistroSN`, `costo` ";
+            $sql .= " FROM `registroApple` ";
+            $sql .= " INNER JOIN `registroMayoristas` ";
+            $sql .= " ON `registroApple`.`id_mayorista` = `registroMayoristas`.`id_registroM` ";
+            
+            $sql .= " INNER JOIN `iphoneModel` ";
+            $sql .= " ON `registroApple`.`id_modelo` = `iphoneModel`.`id_modelo` ";
+
+            $sql .= " INNER JOIN `metodos` ";
+            $sql .= " ON `registroApple`.`id_metodoAplicado` = `metodos`.`id_metodo` ";
+
+            $sql .= " ORDER BY `id_sn` ";
+            $resultado = $conn->query($sql);
+       }catch(Exception $e) {
+                echo $e->getMessage();
+       }
+    ?>
+
+    <!-- Imprimir todos los elemtos de la base de datos  -->
+    <div class="datos">
+
+       <?php 
+        $datosRegistro = array();
+
+        while($sn = $resultado->fetch_assoc()){?>
+            
+        <br>
+        <tr class="tabla-registro-sn">
+            <td> <?php echo $sn['nombre']; ?> </td>
+            <td> <?php echo $sn['modelo']; ?> </td>
+            <td> <?php echo $sn['numeroSerie']; ?> </td>
+            <td> <?php echo $sn['metodo']; ?> </td>
+            <td> <?php echo $sn['fechaRegistroSN']; ?> </td>
+            <td> <?php echo $sn['costo']; ?> </td>
+        </tr>
+            
+            
+
+        <?php }?>
+    </div>
+
+   
+       <?php
+        $conn->close();
+       ?>
+
+</section>
+
 <?php 
   include 'inc/templates/footer.php'
 ?>

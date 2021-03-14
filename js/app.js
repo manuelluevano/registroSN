@@ -249,9 +249,10 @@ function buscarContactos(e){
                      registro.style.display = 'table-row';
                  }
                 
+             })
+
                  // Mandamos llamar la funcion para actualizar el buscador
                  numeroMayoristas();
-             })
 
 }
 
@@ -330,7 +331,7 @@ function eliminarMayorista(e){
 
                         // Una vez insertamos el usuario mandamos llamar el metodo para actualizar el contador
                         numeroMayoristas();
-                        
+
                 }else{
 
                     // Mostramos una notificación, si algo esta mal
