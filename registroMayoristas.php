@@ -11,7 +11,7 @@
 
 <div class="formularioRegistroMayorista">
 
-    <form action="#" id="registro_mayorista" id="mayoristas">
+    <form action="#" id="registro_mayorista">
       
       <legend>Añadir un Mayorista <span>Todos los campos son obligatorios</span> </legend>
 

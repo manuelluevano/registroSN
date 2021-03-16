@@ -1,8 +1,7 @@
-//  Traemos los datos del formulario
+//  Traemos los datos del formulario de mayoristas
 const formularioMayorista = document.querySelector('#registro_mayorista'),
       listadoMayoristas = document.querySelector('#listado_mayoristas tbody'),
       inputBuscador = document.querySelector('#buscar');
-
 
 
 eventListeners();
@@ -26,13 +25,15 @@ function eventListeners() {
 
     numeroMayoristas();
 
-    }
+    
+   
 
+    }
 
 
 function leerFormulario(e) {
 
-//console.log('precionaste');   
+console.log('precionaste');   
   e.preventDefault();
   
   //Leer los datos del formulario

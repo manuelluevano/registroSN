@@ -22,3 +22,27 @@
             return false;
         }
     }
+
+    /////// funciones para registros de SN
+
+    function obtenerMayoristas(){
+        include 'db.php';
+
+        try{
+            return $conn->query(" SELECT nombre FROM registroMayoristas");
+        } catch(Exception $e){
+            echo "Error!" . $e->getMessage() . "<br>";
+            return false;
+        }
+    }
+
+    function obtenerModelosIphone(){
+        include 'db.php';
+
+        try{
+            return $conn->query(" SELECT modelo FROM iphoneModel");
+        } catch(Exception $e){
+            echo "Error!" . $e->getMessage() . "<br>";
+            return false;
+        }
+    }
