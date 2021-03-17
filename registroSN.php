@@ -9,15 +9,12 @@
   <h2>Registro de datos</h2>
 <div class="formularioRegistro">
     <form action="#" id="registroSN">
-    
-    <input type="checkbox" name="checkMayorista" id="checkMayorista">
-    <label for="checkMayorista"><-- Precio Público</label>
-
+ 
     <div class="campo">
         <label for="mayorista">Mayorista:</label>
         <select name="mayorista" id="inpMayorista">
         
-        <option>Seleccionar</option> 
+        <option>Público</option> 
 
 
         <!-- OBTENER LOS MAYORISTAS DE LA BASE DE DATOS  -->
@@ -29,19 +26,12 @@
         // var_dump($mayoristas); 
 
         // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
-        if($mayoristas->num_rows){ 
+    
+        while($mayorista = mysqli_fetch_assoc($mayoristas)){?>
             
-            foreach($mayoristas as $mayorista){?>  
-                
-                <option><?php echo $mayorista['nombre']; ?></option>
-                
-            }    
-        }
-        <?php } //<!-- CIERRE BUCLE -->
-    } ?>   <!-- CIERRE CONDICIONAL IF -->
+            <option  value="<?php echo $mayorista['nombre']; ?>"><?php echo $mayorista['nombre']; ?></option> 
 
-
-
+        <?php } ?>
 
 
     </select>
@@ -49,31 +39,24 @@
 
         <div class="campo">
             <label for="">Modelo Iphone:</label>
-            <select name="mayorista">
-                <option value="0"></option>
+            <select name="modelo" id="modelo">
+                <option >Seleccionar</option>
                 
                 <!-- Obtener los modelos desde la base de datos -->
                 <?php 
         
-                    $modelos = obtenerModelosIphone(); 
+                $modelos = obtenerModelosIphone(); 
+                
+                // var_dump($mayoristas); 
+
+                // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
+            
+                while($modelo = mysqli_fetch_assoc($modelos)){?>
                     
-                    // var_dump($mayoristas); 
+                    <option  value="<?php echo $modelo['modelo']; ?>"><?php echo $modelo['modelo']; ?></option> 
 
-                    // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
-                    if($modelos->num_rows){ 
+                <?php } ?>  <!-- CIERRE CONDICIONAL IF -->
                         
-                        foreach($modelos as $modelo){?>  
-                            
-                            <option value="1"><?php echo $modelo['modelo']; ?></option> 
-                            
-                        }    
-                    }
-                    <?php } //<!-- CIERRE BUCLE -->
-                } ?>   <!-- CIERRE CONDICIONAL IF -->
-                
-                
-
-
             </select>
         </div>  
 
@@ -84,24 +67,47 @@
         </div>  
 
         <div class="campo">
-            <label for="">Método aplicado:</label>
-            <input type="radio" name="metodo" value="1" /> MEID (SIN SEÑAL) <br/>
-            <input type="radio" name="metodo" value="3" /> GSM (SEÑAL Y DATOS) <br/>
-            <input type="radio" name="metodo" value="3" /> BYPASS SEÑAL (DATOS ACTIVACIÓN) <br/>
-            <input type="radio" name="metodo" value="4" /> FMI (RAÍZ) <br/>
-        </div>
+            <label for="">Método::</label>
+            <select name="metodo" id="metodo">
+                <option>Seleccionar</option>
+                
+                <!-- Obtener los modelos desde la base de datos -->
+                <?php 
+        
+                $metodos = obtenerMetodos(); 
+                
+                // var_dump($mayoristas); 
+
+                // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
+            
+                while($metodo = mysqli_fetch_assoc($metodos)){?>
+                    
+                    <option  value="<?php echo $metodo['metodo']; ?>"><?php echo $metodo['metodo']; ?></option> 
+
+                <?php } ?>  <!-- CIERRE CONDICIONAL IF -->
+                        
+            </select>
+        </div>  
 
         <div class="campo">
             <label for="">Fecha:</label>
-            <input type="date">
+            <input type="date" id="fecha">
         </div> 
         
-        <div class="costo">
+        <div class="campo">
             <label for="">Costo:</label>
-            <input type="number">
+            <input type="number" id="costo">
         </div>
 
-        <input type="submit" value="Guardar" id="btn-guardar">
+        <div class="campo">
+            <label for="">Observaciones:</label>
+            <input type="text" placeholder="Escribe aqui tus comentarios" id="observaciones">
+        </div>
+
+        <div class="campo enviar">
+            <input type="submit" value="Guardar" id="accion">
+        </div>
+
     </form>
 
 </div>

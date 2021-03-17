@@ -46,3 +46,14 @@
             return false;
         }
     }
+
+    function obtenerMetodos(){
+        include 'db.php';
+
+        try{
+            return $conn->query(" SELECT metodo FROM metodos ");
+        } catch(Exception $e){
+            echo "Error!" . $e->getMessage() . "<br>";
+            return false;
+        }
+    }
