@@ -14,7 +14,7 @@
         <label for="mayorista">Mayorista:</label>
         <select name="mayorista" id="inpMayorista">
         
-        <option>Público</option> 
+        <option value="publico">Publico</option> 
 
 
         <!-- OBTENER LOS MAYORISTAS DE LA BASE DE DATOS  -->
@@ -113,13 +113,54 @@
 </div>
 
 
+<section class="Listado-registrados">
+    <h2>Informacion de sn</h2>
+
+
+
+    <!-- Imprimir todos los elemtos de la base de datos  -->
+    <div class="contenedor-tabla">
+          <table id="listado_SN">
+            <thead>
+              <tr>
+                <th>Mayorista: </th>
+                <th>Modelo Iphone: </th>
+                <th>SN: </th>
+                <th>Método: </th>
+                <th>Fecha: </th>
+                <th>Costo: </th>
+                <th>Observaciones: </th>
+
+              </tr>
+            </thead>
+
+
+            <tbody>
+
+                    
+                <br>
+                <tr class="tabla-registro-sn">
+                    
+                </tr>
+                    
+                    
+
+            <tbody>
+        </table>
+    </div>
+   
+
+</section>
+
+
 
 
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <!--  BOOSTRAP  --->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-
+<!-- Sweet alert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <script src="js/app2.js"></script>
   <script src="https://kit.fontawesome.com/04730c9c8a.js" crossorigin="anonymous"></script>

@@ -1,7 +1,5 @@
 // // Traemos los datos del registro de SN
 const formularioSN = document.querySelector('#registroSN');
-// seleccionar checkbox
-const checkMayorista = document.querySelector('#checkMayorista');
 // seleccionar lista Mayoristas
 const inputMayorista = document.querySelector('#inpMayorista');
 
@@ -41,7 +39,7 @@ const inputMayorista = document.querySelector('#inpMayorista');
       console.log('completa todos los campos');
    }else{
       //Pasa la validación || hacemos el llamado a ajax
-      // console.log('correcto');
+       //console.log(nombreMayorista);
       
 
       const infoRegistroSN = new FormData();
@@ -50,25 +48,24 @@ const inputMayorista = document.querySelector('#inpMayorista');
             infoRegistroSN.append('numeroSerie', numeroSerie);
             infoRegistroSN.append('metodo', metodo);
             infoRegistroSN.append('fecha', fecha);
-            infoRegistroSN.append('modeloIphone', modeloIphone);
             infoRegistroSN.append('costo', costo);
             infoRegistroSN.append('observaciones', observaciones);
             infoRegistroSN.append('accion', accion);
                   
    
       // leer la información
-      console.log(...infoRegistroSN);
+      //console.log(...infoRegistroSN);
 
       
       if(accion === 'Guardar'){
          // Pasamos la información a la funcion para el llamado de ajax
-           console.log('correcto');
+        //    console.log('correcto');
 
            insertarDB(infoRegistroSN);
           
 
        }else{
-         console.log('error');
+        //  console.log('error');
 
          // edita el contacto
       //     // leer el id
@@ -77,7 +74,7 @@ const inputMayorista = document.querySelector('#inpMayorista');
       //     infoMayorista.append('id', idRegistrado);
       //     actualizarRegistro(infoMayorista);
 
-       }
+    }
 
         
    }}
@@ -96,12 +93,15 @@ function insertarDB(infoRegistroSN){
     //  Pasar los datos a ajax
     xhr.onload = function(){
       if(this.status === 200 ){
-          console.log(JSON.parse(xhr.responseText));
-           // En php no existe los arreglos asociativos, se llaman objetos
-          //Leemos la respuesta de php - primero convertimos el string Json en objeto para leer
-          const respuesta = JSON.parse( xhr.responseText );
+          console.log(JSON.parse( xhr.responseText) );
+          
+        // Leemos la respuesta de php
 
-          console.log(respuesta);
+        const respuesta = JSON.parse( xhr.responseText);
+
+        console.log(respuesta.nombreMayorista);
+          
+        mostrarNotificaciones('contacto creado correctamente', 'success');
 
           
       }
@@ -110,4 +110,16 @@ function insertarDB(infoRegistroSN){
    //  Enviar los datos a ajax
       xhr.send(infoRegistroSN);
 
+}
+
+
+function mostrarNotificaciones(mensaje, imagen){
+    var mensaje,
+         imagen;
+
+    Swal.fire(
+        mensaje,
+        'Preciona el boton!',
+        imagen
+      )
 }
