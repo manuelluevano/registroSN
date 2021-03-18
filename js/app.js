@@ -110,11 +110,11 @@ function actualizarRegistro(infoMayorista){
             // console.log(respuesta);
             if(resultado.respuesta === 'correcto'){
                 // Mostar noptificación si es correcto
-                mostrarNotificaciones('Contacto Editado correctamente', 'alert-success');
+                mostrarNotificaciones('Contacto Editado correctamente', 'success');
 
              }else{
                 // Mostar noptificación si NO es correcto
-                mostrarNotificaciones('No editaste ningun dato', 'alert-danger');
+                mostrarNotificaciones('No editaste ningun dato', 'errro');
              }
 
              // Después de 3 segundos redireccionar a la página de inicio
@@ -214,7 +214,7 @@ function insertarDB(infoMayorista){
                 document.querySelector('form').reset();
                         
                 /* MOSTRAR LA NOTIFICACIÓN AL AGREGAR UN PERFIL NUEVO */ 
-                mostrarNotificaciones('Mayorista agregado exitosamente!', 'alert-success');
+                mostrarNotificaciones('Mayorista agregado exitosamente!', 'success');
 
                 // Una vez insertamos el usuario mandamos llamar el metodo para actualizar el contador
                 numeroMayoristas();
@@ -328,7 +328,7 @@ function eliminarMayorista(e){
                     deleteRegistro.remove();
 
                     // Mostramos una notificación, si algo esta bien
-                    mostrarNotificaciones('Mayorista Eliminado', 'alert-info');
+                    mostrarNotificaciones('Mayorista Eliminado', 'success');
 
                         // Una vez insertamos el usuario mandamos llamar el metodo para actualizar el contador
                         numeroMayoristas();
@@ -337,7 +337,7 @@ function eliminarMayorista(e){
 
                     // Mostramos una notificación, si algo esta mal
 
-                    mostrarNotificaciones('Hubo un error al eliminar el elemento', 'alert-danger');
+                    mostrarNotificaciones('Hubo un error al eliminar el elemento', 'error');
                 }
 
 
@@ -356,43 +356,54 @@ function eliminarMayorista(e){
     
 }
 
-// //Notifiación en pantalla
-function mostrarNotificaciones(mensaje, clase){
 
-    console.log('correcto');
+function mostrarNotificaciones(mensaje, imagen){
+    var mensaje,
+         imagen;
 
-    const notificacion = document.createElement('div');
-    // Agregamos la clase
-    notificacion.classList.add('alert', clase, 'alert-dismissable');
+    Swal.fire(
+        mensaje,
+        'Preciona el boton!',
+        imagen
+      )
+}
+// // //Notifiación en pantalla
+// function mostrarNotificaciones(mensaje, clase){
 
-    // Creamos el Strong
-    const strong = document.createElement('strong');
-        strong.textContent = mensaje;
+//     console.log('correcto');
 
-    //Agregar los hijos al padre
-    notificacion.appendChild(strong);
+//     const notificacion = document.createElement('div');
+//     // Agregamos la clase
+//     notificacion.classList.add('alert', clase, 'alert-dismissable');
+
+//     // Creamos el Strong
+//     const strong = document.createElement('strong');
+//         strong.textContent = mensaje;
+
+//     //Agregar los hijos al padre
+//     notificacion.appendChild(strong);
 
 
-    // Lugar donde insertar el mensaje
-    formularioMayorista.insertBefore(notificacion, document.querySelector('.notificacion'));
+//     // Lugar donde insertar el mensaje
+//     formularioMayorista.insertBefore(notificacion, document.querySelector('.notificacion'));
 
-    //Ocultar y mostrar la notificación
-     setTimeout(() => {
-        notificacion.classList.add('visible');
+//     //Ocultar y mostrar la notificación
+//      setTimeout(() => {
+//         notificacion.classList.add('visible');
 
-        setTimeout(() => {
-        notificacion.classList.remove('visible');
-    //     //Despues de los 3 segundos elminamos el div.notificacion para que no se amontonen
-    //     // A esto se le conoce como garbage collector -> esto es que javascript elimina lo que ya no necesita
-    //     //   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management 
-             setTimeout(() => {
-                 notificacion.remove();
+//         setTimeout(() => {
+//         notificacion.classList.remove('visible');
+//     //     //Despues de los 3 segundos elminamos el div.notificacion para que no se amontonen
+//     //     // A esto se le conoce como garbage collector -> esto es que javascript elimina lo que ya no necesita
+//     //     //   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management 
+//              setTimeout(() => {
+//                  notificacion.remove();
 
-             }, 500)
-         }, 3000)
-     }, 100);
+//              }, 500)
+//          }, 3000)
+//      }, 100);
     
     
 
 
- }
+//  }
