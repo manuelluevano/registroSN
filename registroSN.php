@@ -9,6 +9,8 @@
   <h2>Registro de datos</h2>
 <div class="formularioRegistro">
     <form action="#" id="registroSN">
+    <div class="notificacion">
+    </div>
  
     <div class="campo">
         <label for="mayorista">Mayorista:</label>

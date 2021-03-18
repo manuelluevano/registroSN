@@ -36,8 +36,8 @@ const inputMayorista = document.querySelector('#inpMayorista');
 
    // Valiodación de los inputs
    if(fecha === '' || costo === '' || observaciones === '' || modeloIphone === 'Seleccionar' || metodo === 'Seleccionar') {
-      console.log('completa todos los campos');
-   }else{
+      mostrarNotificaciones2('Completa todos los campos', 'alert-warning');   
+  }else{
       //Pasa la validación || hacemos el llamado a ajax
        //console.log(nombreMayorista);
       
@@ -122,4 +122,46 @@ function mostrarNotificaciones(mensaje, imagen){
         'Preciona el boton!',
         imagen
       )
+}
+
+
+// // //Notifiación en pantalla
+function mostrarNotificaciones2(mensaje, clase){
+
+  console.log('correcto');
+
+  const notificacion = document.createElement('div');
+ //  Agregamos la clase
+  notificacion.classList.add('alert', clase, 'alert-dismissable');
+
+   //Creamos el Strong
+  const strong = document.createElement('strong');
+      strong.textContent = mensaje;
+
+  //Agregar los hijos al padre
+  notificacion.appendChild(strong);
+
+
+   //Lugar donde insertar el mensaje
+   formularioSN.insertBefore(notificacion, document.querySelector('.notificacion'));
+
+  //Ocultar y mostrar la notificación
+   setTimeout(() => {
+      notificacion.classList.add('visible');
+
+      setTimeout(() => {
+      notificacion.classList.remove('visible');
+    //   Despues de los 3 segundos elminamos el div.notificacion para que no se amontonen
+      //  A esto se le conoce como garbage collector -> esto es que javascript elimina lo que ya no necesita
+        //  https:developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management 
+           setTimeout(() => {
+               notificacion.remove();
+
+           }, 300)
+       }, 500)
+   }, 50);
+ 
+ 
+
+
 }

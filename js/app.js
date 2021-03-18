@@ -51,8 +51,8 @@ console.log('precionaste');
         // Validación de inputs
    
       if(nombre === '' || apellido  === '' || email === '' || telefono === '' || domicilio === '' || fecha === '') {
-            console.log('completa todos los campos');
-        } else{
+        mostrarNotificaciones2('completa todos los campos', 'alert-warning');
+    } else{
             //Pasa la validación || hacemos el llamado a ajax
             // console.log('correcto');
             const infoMayorista = new FormData();
@@ -368,42 +368,42 @@ function mostrarNotificaciones(mensaje, imagen){
       )
 }
 // // //Notifiación en pantalla
-// function mostrarNotificaciones(mensaje, clase){
+ function mostrarNotificaciones2(mensaje, clase){
 
-//     console.log('correcto');
+     console.log('correcto');
 
-//     const notificacion = document.createElement('div');
-//     // Agregamos la clase
-//     notificacion.classList.add('alert', clase, 'alert-dismissable');
+     const notificacion = document.createElement('div');
+    //  Agregamos la clase
+     notificacion.classList.add('alert', clase, 'alert-dismissable');
 
-//     // Creamos el Strong
-//     const strong = document.createElement('strong');
-//         strong.textContent = mensaje;
+      //Creamos el Strong
+     const strong = document.createElement('strong');
+         strong.textContent = mensaje;
 
-//     //Agregar los hijos al padre
-//     notificacion.appendChild(strong);
+     //Agregar los hijos al padre
+     notificacion.appendChild(strong);
 
 
-//     // Lugar donde insertar el mensaje
-//     formularioMayorista.insertBefore(notificacion, document.querySelector('.notificacion'));
+      //Lugar donde insertar el mensaje
+     formularioMayorista.insertBefore(notificacion, document.querySelector('.notificacion'));
 
-//     //Ocultar y mostrar la notificación
-//      setTimeout(() => {
-//         notificacion.classList.add('visible');
+     //Ocultar y mostrar la notificación
+      setTimeout(() => {
+         notificacion.classList.add('visible');
 
-//         setTimeout(() => {
-//         notificacion.classList.remove('visible');
-//     //     //Despues de los 3 segundos elminamos el div.notificacion para que no se amontonen
-//     //     // A esto se le conoce como garbage collector -> esto es que javascript elimina lo que ya no necesita
-//     //     //   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management 
-//              setTimeout(() => {
-//                  notificacion.remove();
+         setTimeout(() => {
+         notificacion.classList.remove('visible');
+       //   Despues de los 3 segundos elminamos el div.notificacion para que no se amontonen
+         //  A esto se le conoce como garbage collector -> esto es que javascript elimina lo que ya no necesita
+           //  https:developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management 
+              setTimeout(() => {
+                  notificacion.remove();
 
-//              }, 500)
-//          }, 3000)
-//      }, 100);
+              }, 300)
+          }, 500)
+      }, 50);
     
     
 
 
-//  }
+ }
