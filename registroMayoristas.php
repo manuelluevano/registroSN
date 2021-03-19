@@ -3,49 +3,45 @@
   include 'includes/funciones/funciones.php';
 
 ?>
+
+<div class="barraEnlaces">
+    
     <div class="navegacion">
-        <a href="index.php">Regresar</a>
     </div>
-    
-    <h2>Registro Mayoristas</h2>
 
-<div class="formularioRegistroMayorista">
+    <div class="formularioRegistroMayorista">
 
-    <form action="#" id="registro_mayorista">
+      <form action="#" id="registro_mayorista">
       
-      <legend>Añadir un Mayorista <span>Todos los campos son obligatorios</span> </legend>
+        <legend>Añadir un Mayorista <span>Todos los campos son obligatorios</span> </legend>
 
-      <?php 
-        include 'includes/templates/formularioMayoristas.php';
-      ?>  
+        <?php 
+          include 'includes/templates/formularioMayoristas.php';
+        ?>  
 
-    </form>
-
-    
-
-</div>
-
+      </form>
+    </div>
 <!-- | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | -->
 
-<div class="bg-blanco sombra form contenedor">
+    <div class="bg-blanco sombra form ">
       <div class="contenedor-contactos">
         <h2>Contactos</h2>
 
             <input type="text" id="buscar" class="buscador sombra" placeholder="Buscar contactos">
 
-            <p class="total_mayoristas">Total Mayoristas  <span>2</span></p>        
+            <p class="total_mayoristas">Total Mayoristas  <span> 2 </span></p>        
 
-        <div class="contenedor-tabla">
-          <table id="listado_mayoristas">
+        <div class="contenedor-tabla" class="contenedor">
+          <table id="listado_mayoristas" class="table ">
             <thead>
               <tr>
-                <th>Nombre: </th>
-                <th>Apellido: </th>
-                <th>Email: </th>
-                <th>Telefono: </th>
-                <th>Domicilio Local: </th>
-                <th>Fecha Registro: </th>
-                <th>Acciones</th>
+                <th scope="col">Nombre: </th>
+                <th scope="col">Apellido: </th>
+                <th scope="col">Email: </th>
+                <th scope="col">Telefono: </th>
+                <th scope="col">Domicilio Local: </th>
+                <th scope="col">Fecha Registro: </th>
+                <th scope="col">Acciones</th>
 
               </tr>
             </thead>
@@ -55,7 +51,7 @@
                   // mandamos llamar la funcion para traer los perfiles de la base de datos
                       $mayoristas = obetenerContactosDesdeDB();
                       // Ver información de la base de datos ->num_rows['']:  
-                         var_dump($mayoristas);
+                         //var_dump($mayoristas);
 
 
                           // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
@@ -74,12 +70,12 @@
                     </pre> 
                     <!-- CIERRE PARA VER NOMBRES DE LOS CAMPOS -->
 
-                    <td> <?php echo $mayorista['nombre']; ?> </td>
-                    <td><?php echo $mayorista['apellido']; ?></td>
-                    <td><?php echo $mayorista['email']; ?></td>
-                    <td><?php echo $mayorista['telefono']; ?></td>
-                    <td><?php echo $mayorista['domicilio']; ?></td>
-                    <td><?php echo $mayorista['fecha']; ?></td>
+                    <td scope="row"> <?php echo $mayorista['nombre']; ?> </td>
+                    <td scope="row"><?php echo $mayorista['apellido']; ?></td>
+                    <td scope="row"><?php echo $mayorista['email']; ?></td>
+                    <td scope="row"><?php echo $mayorista['telefono']; ?></td>
+                    <td scope="row"><?php echo $mayorista['domicilio']; ?></td>
+                    <td scope="row"><?php echo $mayorista['fecha']; ?></td>
                                         
                                         
                     <td class="acciones">
@@ -101,6 +97,15 @@
         </div>
       </div>
     </div>
+
+</div>
+    
+    
+
+
+
+
+
 
 <?php 
   include 'includes/templates/footer.php'

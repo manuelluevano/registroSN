@@ -149,7 +149,7 @@ function insertarDB(infoMayorista){
             
             //Después: ya es mas legible
             //Object { nombre: "asadaasdafda", apellido: "asddas", email: "marlene.vega@gmail.com", telefono: "21312", domicilio: "qas", fecha: "2021-03-10", accion: "crearMayorista" }
-            console.log(JSON.parse(xhr.responseText));
+            //console.log(JSON.parse(xhr.responseText));
 
 
             //leemos respuesta de PHP
@@ -320,7 +320,7 @@ function eliminarMayorista(e){
                     // Eliminamos el registro del DOM -> ajax
 
                     //Vemos el elemento seleccionado
-                    console.log(e.target.parentElement.parentElement.parentElement);
+                    //console.log(e.target.parentElement.parentElement.parentElement);
 
                     //Eliminamos el registro
                     const deleteRegistro = e.target.parentElement.parentElement.parentElement;

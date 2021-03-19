@@ -153,7 +153,7 @@
                         
                         //var_dump($registro); ?>
 
-                                    <br>
+                                    
                                 <tr class="tabla-registro-sn">
 
                                     <td><?php echo $registro['nombre_mayorista']?></td>

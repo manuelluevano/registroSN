@@ -25,3 +25,8 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
+
+<header>
+  <div class="barra ">
+      
+</header>
