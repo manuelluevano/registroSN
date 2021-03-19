@@ -59,6 +59,14 @@
     background-color: #d5d5d5;
     margin: 8px 0;
     display: inline-block; }
+  .campos .campo select {
+    font-size: 14px;
+    width: 240px;
+    padding: 10px 10px;
+    border: 1px solid #f6f6f6;
+    background-color: #d5d5d5;
+    margin: 8px 0;
+    display: inline-block; }
 
 .campo-enviar input[type="submit"] {
   width: 100%;
