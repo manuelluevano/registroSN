@@ -65,7 +65,7 @@
 
         <div class="campo">
             <label for="">Número de Serie (SN):</label>
-            <input type="text" id="sn">
+            <input type="text" id="sn" maxlength="13">
         </div>  
 
         <div class="campo">
@@ -132,6 +132,7 @@
                 <th>Fecha: </th>
                 <th>Costo: </th>
                 <th>Observaciones: </th>
+                <th>Acciones</th>
 
               </tr>
             </thead>
@@ -139,11 +140,45 @@
 
             <tbody>
 
+                    <!-- Obtener los modelos desde la base de datos -->
+                <?php $registros = obtenerRegistrosSN(); 
+                
+                
+                //Validar que existan datos
+                if($registros->num_rows){
+
+                        // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
                     
-                <br>
-                <tr class="tabla-registro-sn">
-                    
-                </tr>
+                        while($registro = mysqli_fetch_assoc($registros)){
+                        
+                        //var_dump($registro); ?>
+
+                                    <br>
+                                <tr class="tabla-registro-sn">
+
+                                    <td><?php echo $registro['nombre_mayorista']?></td>
+                                    <td><?php echo $registro['modelo_iphone']?></td>
+                                    <td><?php echo $registro['numero_serie']?></td>
+                                    <td><?php echo $registro['metodo_aplicado']?></td>
+                                    <td><?php echo $registro['fecha_registro']?></td>
+                                    <td><?php echo $registro['costo_registro']?></td>
+                                    <td><?php echo $registro['observaciones_registro']?></td>
+                                    
+                                    <td class="acciones">
+                                        <a href="editar_sn?id=<?php echo $registro['id_registro_datos']?>" class="btn btn-editar">
+                                            <i class="fas fa-pen-square"></i>
+                                        </a>
+
+                                        <button data-id="<?php echo $registro['id_registro_datos']?>" class="btn-borrar btn" type="button">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                                <?php    }
+                 } ?>  <!-- CIERRE CONDICIONAL IF -->
+                
+                
                     
                     
 

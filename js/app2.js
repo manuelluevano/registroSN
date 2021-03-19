@@ -1,7 +1,7 @@
 // // Traemos los datos del registro de SN
 const formularioSN = document.querySelector('#registroSN');
 // seleccionar lista Mayoristas
-const inputMayorista = document.querySelector('#inpMayorista');
+const listaRegistros = document.querySelector('#listado_SN tbody');
 
 
 
@@ -35,7 +35,7 @@ const inputMayorista = document.querySelector('#inpMayorista');
 
 
    // Valiodación de los inputs
-   if(fecha === '' || costo === '' || observaciones === '' || modeloIphone === 'Seleccionar' || metodo === 'Seleccionar') {
+   if(fecha === '' || costo === '' || modeloIphone === 'Seleccionar' || metodo === 'Seleccionar') {
       mostrarNotificaciones2('Completa todos los campos', 'alert-warning');   
   }else{
       //Pasa la validación || hacemos el llamado a ajax
@@ -101,9 +101,69 @@ function insertarDB(infoRegistroSN){
 
         console.log(respuesta.nombreMayorista);
           
-        mostrarNotificaciones('contacto creado correctamente', 'success');
 
-          
+        // crear un nuevo elemento en la tabla 
+        const nuevoRegistro = document.createElement('tr');
+
+        nuevoRegistro.innerHTML =  ` 
+        
+            <td>${respuesta.datos.nombre}</td>
+            <td>${respuesta.datos.modeloIphone}</td>
+            <td>${respuesta.datos.numeroSerie}</td>
+            <td>${respuesta.datos.metodo}</td>
+            <td>${respuesta.datos.fecha}</td>
+            <td>${respuesta.datos.costo}</td>
+            <td>${respuesta.datos.observaciones}</td>
+
+        `;
+
+        // Crea el contenedor para los botones
+        const contenedorAcciones = document.createElement('td');
+        contenedorAcciones.classList.add('acciones');
+        
+        // Creacion del icono de editar
+        const iconoEditar = document.createElement('i'); 
+        iconoEditar.classList.add('fas', 'fa-pen-square');
+        
+        // Crear el enlace para editar
+        const btnEditar = document.createElement('a');
+        btnEditar.appendChild(iconoEditar);  
+        btnEditar.href = `editarRegistro.php=${respuesta.datos.id_insertado}`;
+        btnEditar.classList.add('btn', 'btn-editar');
+
+          //  Lo agregamos al padre
+          contenedorAcciones.appendChild(btnEditar);
+
+
+          /***////////*/*////*///*//*//*///*///////// */ */ */
+
+          // Crear el icono de eliminar 
+          const iconoEliminar = document.createElement('i');
+          iconoEliminar.classList.add('fas', 'fa-trash');
+         
+        //  Crear el enlace para editar
+          const btnEliminar = document.createElement('button');
+          btnEliminar.appendChild(iconoEliminar);
+          btnEliminar.setAttribute('data-id', respuesta.datos.id_insertado);
+          btnEliminar.classList.add('btn', 'btn-borrar');
+
+        //   Lo agregamos al padre
+          contenedorAcciones.appendChild(btnEliminar);
+
+        // Agregarlo al tr para mostrarlo en la página
+        nuevoRegistro.appendChild(contenedorAcciones);
+
+        /* Agregamos a la lista de perfiles que se muestra en pantalla  */
+        listaRegistros.appendChild(nuevoRegistro);
+
+        // Resetear el formulario
+        document.querySelector('form').reset();
+
+
+        // mostrar notificacion
+        mostrarNotificaciones('Registro creado correctamente', 'success');
+
+
       }
   }
 
