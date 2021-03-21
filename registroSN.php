@@ -126,7 +126,7 @@
 
         <!-- Imprimir todos los elemtos de la base de datos  -->
         <div class="contenedor-tabla">
-            <table id="listado_SN" class="table">
+            <table id="listado_SN" class="table table-striped">
                 <thead>
                 <tr>
                     <th>Mayorista: </th>

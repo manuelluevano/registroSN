@@ -5,6 +5,19 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <!-- Sweet alert -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  
+  <!-- AGREGAMOS LIBRERIA SWEETALERT (solo usaremos una funcion para el login .then() ) -->
+  <script src="js/sweetalert2.all.min.js"></script>
+
+  <!--  Agregamos el formulario de login  -->
+  <?php
+    $actual = obtenerPaginaActual();
+    //var_dump($actual);
+    if($actual === 'login' || $actual == 'crear-cuenta'){
+      echo '<script src="js/formularioLogin.js"></script>';
+    }
+  ?>
+
 
   <script src="js/app.js"></script>
   <script src="https://kit.fontawesome.com/04730c9c8a.js" crossorigin="anonymous"></script>

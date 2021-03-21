@@ -71,3 +71,16 @@
             return false;
         }
     }
+
+
+    //// LOGIN ///
+    // con esto, detectamos la pagina actual
+
+    function obtenerPaginaActual(){
+        $archivo = basename($_SERVER['PHP_SELF']);
+        //esto devuelve la pagina.php / vamos a remover el .php
+        $pagina = str_replace(".php", "", $archivo);
+        
+        //remornamos el valor para poder utilizarlo
+        return $pagina;
+    }

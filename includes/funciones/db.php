@@ -8,6 +8,7 @@
     define('DB_NOMBRE_BASE', 'registroSN');
 
     $conn = new mysqli(DB_HOST, DB_USUARIO, DB_PASSWORD, DB_NOMBRE_BASE );
+    $conn->set_charset('utf8');
 
     //  Ping nos arroja '0' o nada si no se conecta y '1' si se conecta correctamente a la DB
     // echo $conn->ping();

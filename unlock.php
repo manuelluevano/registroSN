@@ -1,9 +1,8 @@
 <?php 
-  include 'includes/templates/header.php'
+   include_once 'includes/funciones/funciones.php'; 
+   include_once 'includes/templates/header.php';
 ?>
 
-
-<body>
 
   <!-- Add your site or application content here -->
   

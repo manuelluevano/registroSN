@@ -32,7 +32,7 @@
             <p class="total_mayoristas">Total Mayoristas  <span> 2 </span></p>        
 
         <div class="contenedor-tabla" class="contenedor">
-          <table id="listado_mayoristas" class="table ">
+          <table id="listado_mayoristas" class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">Nombre: </th>
