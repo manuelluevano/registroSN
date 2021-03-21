@@ -17,7 +17,7 @@
       <input type="text" id="usuarioLogin" class="fadeIn second" name="login" placeholder="usuario">
       <input type="password" id="passwordLogin" class="fadeIn third" name="login" placeholder="contraseña">
       <input type="hidden" value="login" id="tipo">
-      <input type="submit" class="fadeIn fourth" value="iniciar seccion" >
+      <input type="submit" class="fadeIn fourth" value="iniciar sesión">
     </form>
 
     <!-- Remind Passowrd -->

@@ -2,8 +2,8 @@
 // cargamos la funcion para las secciones antes de cargar cualquier código
 include_once 'includes/funciones/seciones.php'; 
  
-  include 'includes/templates/header.php';
-  include 'includes/funciones/funciones.php';
+include 'includes/funciones/funciones.php';
+include 'includes/templates/header.php';
 
 ?>
 <!-- // Vemos que id esta pasando por $_GET - así pedimos los datos a la base de datos

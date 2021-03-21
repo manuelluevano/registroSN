@@ -37,7 +37,8 @@ include_once 'includes/funciones/seciones.php';
         
             while($mayorista = mysqli_fetch_assoc($mayoristas)){?>
                 
-                <option  value="<?php echo $mayorista['nombre']; ?>"><?php echo $mayorista['nombre']; ?></option> 
+                <option  value="<?php echo $mayorista['nombre']; ?> <?php echo $mayorista['apellido']; ?>">
+                <?php echo $mayorista['nombre']; ?> <?php echo $mayorista['apellido']; ?></option> 
 
             <?php } ?>
 

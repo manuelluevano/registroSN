@@ -43,7 +43,7 @@
         include 'db.php';
 
         try{
-            return $conn->query(" SELECT nombre FROM registroMayoristas");
+            return $conn->query(" SELECT nombre, apellido FROM registroMayoristas");
         } catch(Exception $e){
             echo "Error!" . $e->getMessage() . "<br>";
             return false;
