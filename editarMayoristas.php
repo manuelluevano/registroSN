@@ -1,4 +1,7 @@
 <?php 
+// cargamos la funcion para las secciones antes de cargar cualquier código
+include_once 'includes/funciones/seciones.php'; 
+ 
   include 'includes/templates/header.php';
   include 'includes/funciones/funciones.php';
 
