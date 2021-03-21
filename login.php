@@ -21,9 +21,9 @@
     </form>
 
     <!-- Remind Passowrd -->
-    <div id="formFooter">
+    <!-- <div id="formFooter">
       <a class="underlineHover" href="crear-cuenta.php">Crear cuenta</a>
-    </div>
+    </div> -->
 
   </div>
 </div>
