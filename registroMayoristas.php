@@ -7,13 +7,6 @@ include 'includes/templates/header.php';
 
 ?>
 
-
-<?php
-  // cargamos la barra 
-  include 'includes/templates/barra.php'
-?>
- 
-
 <div class="barraEnlaces">
     
     <div class="navegacion">
@@ -33,7 +26,7 @@ include 'includes/templates/header.php';
     </div>
 <!-- | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | -->
 
-<div class="bg-blanco sombra form ">
+    <div class="bg-blanco sombra form ">
       <div class="contenedor-contactos">
         <h2>Contactos</h2>
 
