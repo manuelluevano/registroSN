@@ -2,6 +2,13 @@
  
    include_once 'includes/funciones/funciones.php'; 
    include_once 'includes/templates/header.php';
+
+   //para llevar la seccion de un lado a otro
+   session_start();
+   // ver los datos del seccion
+   echo "<pre>";
+   var_dump($_SESSION);
+   echo "</pre>"
 ?>
 
 

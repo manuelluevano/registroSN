@@ -1,6 +1,23 @@
 <?php 
    include_once 'includes/funciones/funciones.php'; 
    include_once 'includes/templates/header.php';
+
+   //para llevar la seccion de un lado a otro
+   session_start();
+   // ver los datos del seccion
+   echo "<pre>";
+   var_dump($_SESSION);
+   // ver los datos del seccion
+   echo "<hr>";
+   var_dump($_GET);
+   echo "</pre>";
+   if(isset($_GET['cerrar_sesion'])) {
+     echo "si, cerraste sesion";
+     $_SESSION = array();
+   }else{
+     echo "no";
+   }
+
 ?>
 
 <div class="wrapper fadeInDown">

@@ -5,7 +5,7 @@
             <div class="logo">
                 <h4 class="text-light font-weight-bold mb-0">Menu</h4>
             </div>
-            <div class="menu">
+            <div class="menu ">
                 <a href="registroMayoristas.php" class="d-block text-light p-3 border-0"><i class="bi bi-person-plus-fill"></i>
                     Registro de mayorista</a>
 
@@ -14,9 +14,16 @@
 
                 <a href="unlock.php" class="d-block text-light p-3 border-0"><i class="bi bi-unlock-fill"></i>
                     Unlock</a>
+                    <div class="menu">
+                        <a href="">aa</a>
+                    </div>
+                    
             </div>
+            
         </div>
         <!-- Fin sidebar -->
+
+        
 
         <div class="w-100">
 
@@ -28,7 +35,8 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-    
+
+              <a href="login.php?cerrar_sesion=true">Cerrar sesión</a>
               
             </div>
           </nav>
