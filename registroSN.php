@@ -5,8 +5,13 @@ include_once 'includes/funciones/seciones.php';
    include_once 'includes/funciones/funciones.php'; 
    include_once 'includes/templates/header.php';
 ?>
-    <div class="navegacion">
-    </div>
+
+
+<?php
+  // cargamos la barra 
+  include 'includes/templates/barra.php'
+?>
+ 
 
 <div class="barraEnlaces">
     <h2>Registro de datos</h2>
@@ -120,6 +125,14 @@ include_once 'includes/funciones/seciones.php';
 
         </form>
 
+    </div>
+
+    <div class="contenedor-contactos">
+        <h2>Contactos</h2>
+
+            <input type="text" id="buscar" class="buscador sombra" placeholder="Buscar contactos">
+
+            <p class="total_mayoristas">Total Mayoristas  <span> 2 </span></p>        
     </div>
 
 
