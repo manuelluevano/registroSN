@@ -20,6 +20,11 @@
   include 'includes/templates/barra.php'
 ?>
  
+ <a href="registroMayoristas.php" class="btn btn-primary">Registro Mayorista</a>
+
+ <a href="registroSN.php" class="btn btn-primary">Registro Servicio</a>
+
+ <a href="unlock.php" class="btn btn-primary">Unlock</a>
 
 
 
