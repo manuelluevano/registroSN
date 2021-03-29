@@ -35,9 +35,10 @@ echo "</pre>"
 </div>
 <!-- | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | -->
 
+  <h2>Lista de mayoristas</h2>
+
 <div class="bg-blanco sombra form ">
       <div class="contenedor-contactos">
-        <h2>Contactos</h2>
 
             <input type="text" id="buscar" class="buscador sombra" placeholder="Buscar contactos">
 

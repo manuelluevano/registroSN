@@ -6,70 +6,6 @@
 /* ==========================================================================
  * Base styles: opinionated defaults
  * ========================================================================== */
-:root {
-  --primary:#4e73df;
-  --light:#ffffff;
-  --grey:#efefef; }
-
-body {
-  font-family: "Muli", sans-serif;
-  font-weight: 300;
-  color: var(--primary); }
-
-.bg-color {
-  background-color: var(--primary) !important; }
-
-a:hover {
-  text-decoration: none; }
-
-.bg-primary {
-  background-color: var(--primary) !important; }
-
-.bg-light {
-  background-color: var(--light) !important; }
-
-.bg-grey {
-  background-color: var(--grey) !important; }
-
-.bg-mix {
-  background: linear-gradient(180deg, var(--light) 50%, var(--grey) 0); }
-
-.btn-primary {
-  background-color: var(--primary);
-  border: 0; }
-  .btn-primary:hover {
-    background-color: var(--primary); }
-
-#sidebar-container {
-  min-height: 100vh; }
-  #sidebar-container .logo {
-    padding: 0.875rem 1.25rem; }
-  #sidebar-container .menu {
-    width: 18rem; }
-    #sidebar-container .menu a {
-      text-decoration: none;
-      font-size: 20px; }
-
-#content {
-  overflow-y: auto;
-  height: 100vh;
-  padding-bottom: 5rem; }
-
-.avatar {
-  max-width: 35px; }
-
-.btn-search {
-  right: 0; }
-
-.stat {
-  border-right: 1px solid var(--grey); }
-
-@media (max-width: 768px) {
-  #sidebar-container {
-    display: none; }
-
-  .stat {
-    border: 0; } }
 .formularioRegistroMayorista form legend {
   font-size: 30px; }
   .formularioRegistroMayorista form legend span {
@@ -81,18 +17,20 @@ a:hover {
   grid-template-columns: repeat(2, 1fr);
   gap: 0px 10px; }
   .campos .campo label {
+    font-size: 20px;
     font-weight: bold;
     display: inline-block;
     width: 72px;
     margin-right: 25px; }
   .campos .campo input {
     font-size: 14px;
-    width: 240px;
+    width: 85%;
     padding: 10px 10px;
     border: 1px solid #f6f6f6;
     background-color: #d5d5d5;
     margin: 8px 0;
-    display: inline-block; }
+    display: inline-block;
+    text-align: center; }
   .campos .campo select {
     font-size: 14px;
     width: 240px;
@@ -103,11 +41,12 @@ a:hover {
     display: inline-block; }
 
 .campo-enviar input[type="submit"] {
-  width: 100%;
+  width: 50%;
   margin: 32px 0;
   border-radius: 5px;
-  display: block;
-  font-weight: bold; }
+  display: inline-block;
+  font-weight: bold;
+  text-align: center; }
 
 .contenedor-contactos input {
   text-align: center;
@@ -131,6 +70,9 @@ a:hover {
   color: #f25d00;
   font-size: 30px; }
 
+h2 {
+  padding: 20px 0; }
+
 #sn {
   text-transform: uppercase; }
 
@@ -151,8 +93,7 @@ h2 {
   font-weight: 600;
   text-transform: uppercase;
   display: inline-block;
-  margin: 40px 8px 10px 8px;
-  color: #cccccc; }
+  margin: 40px 8px 10px 8px; }
 
 /* STRUCTURE */
 .wrapper {
@@ -341,26 +282,37 @@ input[type=text], input[type=password], input[type=number], input[type=date] {
   width: 60%; }
 
 @media (max-width: 600px) {
-  .formularioRegistroMayorista .campos {
+  .campos {
     display: grid;
     grid-template-columns: 100%;
     gap: 10px; }
-    .formularioRegistroMayorista .campos .campo label {
+    .campos .campo label {
       font-size: 20px;
       font-weight: bold;
       display: inline-block;
       width: 100%; }
-    .formularioRegistroMayorista .campos .campo input {
+    .campos .campo input {
       font-size: 18px;
       width: 85%;
       padding: 5px 5px; }
-    .formularioRegistroMayorista .campos .campo select {
+    .campos .campo select {
       font-size: 20px; }
-  .formularioRegistroMayorista input[type="submit"] {
+
+  input[type="submit"] {
     width: 90%;
     margin: 32px 0;
     text-align: center;
     display: inline-block; } }
+@media (min-width: 768px) {
+  .formularioRegistroMayorista .campos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; } }
+@media (min-width: 1200px) {
+  .formularioRegistroMayorista .campos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; } }
 @media (max-width: 600px) {
   table {
     width: 100%; }
