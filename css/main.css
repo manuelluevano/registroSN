@@ -334,6 +334,22 @@ input[type=text], input[type=password], input[type=number], input[type=date] {
     content: attr(data-th);
     display: block;
     text-align: center; } }
+@media (max-width: 600px) {
+  .campos {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 10px; }
+    .campos .campo label {
+      font-size: 20px;
+      font-weight: bold;
+      display: inline-block;
+      width: 100%; }
+    .campos .campo input {
+      font-size: 18px;
+      width: 85%;
+      padding: 5px 5px; }
+    .campos .campo select {
+      font-size: 20px; } }
 html {
   color: #222;
   font-size: 1em;
