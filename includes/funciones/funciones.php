@@ -88,13 +88,6 @@
 
     ///// unclock  ///
    
-    
-    function obtenerIccid(){
-        $data = file_get_contents("https://www.emporiocelular.com/iccid/");
+   
 
-        if ( preg_match('|<h4(.*?)</h4>|is' , $data , $cap ) )
-        {
-        echo $cap[0];
-        
-        }
-    }
+    

@@ -1,0 +1,46 @@
+// registro de mayoristas
+
+@media (max-width: 600px)
+    .formularioRegistroMayorista
+        .campos
+            display: grid
+            grid-template-columns: 100%
+            gap: 10px
+            .campo
+                label
+                    font-size: 20px
+                    font-weight: bold
+                    display: inline-block
+                    width: 100%
+                input
+                    font-size: 18px
+                    width: 85%
+                    padding: 5px 5px
+                select
+                    font-size: 20px
+        .campo-enviar    
+        input[type="submit"]
+            width: 90%
+            margin: 32px 0
+            text-align: center
+            display: inline-block
+
+
+// tabla de registros
+@media (max-width: 600px)
+    table
+        width: 100%
+    thead
+        display: none
+    tr
+        background-color: inherit
+    td:first-child
+        background: #f0f0f0
+        font-weight: bold
+        font-size: 1.3em
+    tbody td
+        display: block
+        text-align: center
+        content: attr(data-th)
+        display: block
+        text-align: center

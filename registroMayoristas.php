@@ -21,12 +21,7 @@ echo "</pre>"
 ?>
  
 
-<div class="barraEnlaces">
-    
-    <div class="navegacion">
-    </div>
-
-    <div class="formularioRegistroMayorista">
+<div class="formularioRegistroMayorista">
 
       <form action="#" id="registro_mayorista">
       
@@ -37,7 +32,7 @@ echo "</pre>"
         ?>  
 
       </form>
-    </div>
+</div>
 <!-- | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | -->
 
 <div class="bg-blanco sombra form ">
@@ -113,9 +108,8 @@ echo "</pre>"
           </table>
         </div>
       </div>
-    </div>
-
 </div>
+
     
     
 
@@ -124,6 +118,8 @@ echo "</pre>"
 
 
 
-<?php 
-  include 'includes/templates/footer.php'
-?>
+
+
+  <?php 
+    include 'includes/templates/footer.php'
+  ?>

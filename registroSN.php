@@ -1,8 +1,8 @@
-<?php 
+<?php
 // cargamos la funcion para las secciones antes de cargar cualquier código
-include_once 'includes/funciones/seciones.php'; 
- 
-   include_once 'includes/funciones/funciones.php'; 
+include_once 'includes/funciones/seciones.php';
+
+   include_once 'includes/funciones/funciones.php';
    include_once 'includes/templates/header.php';
 
    //para llevar la seccion de un lado a otro
@@ -15,42 +15,41 @@ include_once 'includes/funciones/seciones.php';
 
 
 <?php
-  // cargamos la barra 
-  include 'includes/templates/barra.php'
+  // cargamos la barra
+//   include 'includes/templates/barra.php'
 ?>
- 
 
-<div class="barraEnlaces">
-    <h2>Registro de datos</h2>
+    
     <div class="formularioRegistro">
         <form action="#" id="registroSN">
         <div class="notificacion">
         </div>
+
+
     
-    
-    <div class="campos">
+    <div class="campos ">
 
         <div class="campo">
             <label for="mayorista">Mayorista:</label>
             <select name="mayorista" id="inpMayorista">
-            
-            <option value="publico">Publico</option> 
+
+            <option value="publico">Publico</option>
 
 
             <!-- OBTENER LOS MAYORISTAS DE LA BASE DE DATOS  -->
 
-            <?php 
-            
-            $mayoristas = obtenerMayoristas(); 
-            
-            // var_dump($mayoristas); 
+            <?php
+
+            $mayoristas = obtenerMayoristas();
+
+            // var_dump($mayoristas);
 
             // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
-        
+
             while($mayorista = mysqli_fetch_assoc($mayoristas)){?>
-                
+
                 <option  value="<?php echo $mayorista['nombre']; ?> <?php echo $mayorista['apellido']; ?>">
-                <?php echo $mayorista['nombre']; ?> <?php echo $mayorista['apellido']; ?></option> 
+                <?php echo $mayorista['nombre']; ?> <?php echo $mayorista['apellido']; ?></option>
 
             <?php } ?>
 
@@ -62,59 +61,59 @@ include_once 'includes/funciones/seciones.php';
                 <label for="">Modelo Iphone:</label>
                 <select name="modelo" id="modelo">
                     <option >Seleccionar</option>
-                    
+
                     <!-- Obtener los modelos desde la base de datos -->
-                    <?php 
-            
-                    $modelos = obtenerModelosIphone(); 
-                    
-                    // var_dump($mayoristas); 
+                    <?php
+
+                    $modelos = obtenerModelosIphone();
+
+                    // var_dump($mayoristas);
 
                     // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
-                
+
                     while($modelo = mysqli_fetch_assoc($modelos)){?>
-                        
-                        <option  value="<?php echo $modelo['modelo']; ?>"><?php echo $modelo['modelo']; ?></option> 
+
+                        <option  value="<?php echo $modelo['modelo']; ?>"><?php echo $modelo['modelo']; ?></option>
 
                     <?php } ?>  <!-- CIERRE CONDICIONAL IF -->
-                            
+
                 </select>
-        </div>  
+        </div>
 
 
         <div class="campo">
                 <label for="">Número de Serie (SN):</label>
                 <input type="text" id="sn" maxlength="13">
-        </div>  
+        </div>
 
         <div class="campo">
                 <label for="">Método::</label>
                 <select name="metodo" id="metodo">
                     <option>Seleccionar</option>
-                    
+
                     <!-- Obtener los modelos desde la base de datos -->
-                    <?php 
-            
-                    $metodos = obtenerMetodos(); 
-                    
-                    // var_dump($mayoristas); 
+                    <?php
+
+                    $metodos = obtenerMetodos();
+
+                    // var_dump($mayoristas);
 
                     // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
-                
+
                     while($metodo = mysqli_fetch_assoc($metodos)){?>
-                        
-                        <option  value="<?php echo $metodo['metodo']; ?>"><?php echo $metodo['metodo']; ?></option> 
+
+                        <option  value="<?php echo $metodo['metodo']; ?>"><?php echo $metodo['metodo']; ?></option>
 
                     <?php } ?>  <!-- CIERRE CONDICIONAL IF -->
-                            
+
                 </select>
-        </div>  
+        </div>
 
         <div class="campo">
                 <label for="">Fecha:</label>
                 <input type="date" id="fecha">
-        </div> 
-            
+        </div>
+
         <div class="campo">
                 <label for="">Costo:</label>
                 <input type="number" id="costo">
@@ -139,7 +138,7 @@ include_once 'includes/funciones/seciones.php';
 
             <input type="text" id="buscar" class="buscador sombra" placeholder="Buscar contactos">
 
-            <p class="total_mayoristas">Total Mayoristas  <span> 2 </span></p>        
+            <p class="total_mayoristas">Total Mayoristas  <span> 2 </span></p>
     </div>
 
 
@@ -169,19 +168,19 @@ include_once 'includes/funciones/seciones.php';
                 <tbody>
 
                         <!-- Obtener los modelos desde la base de datos -->
-                    <?php $registros = obtenerRegistrosSN(); 
-                    
-                    
+                    <?php $registros = obtenerRegistrosSN();
+
+
                     //Validar que existan datos
                     if($registros->num_rows){
 
                             // SI EXISTEN VALORES QUE SE EJECUTE, SI NO, NO REALICE NADA.
-                        
+
                             while($registro = mysqli_fetch_assoc($registros)){
-                            
+
                             //var_dump($registro); ?>
 
-                                        
+
                                     <tr class="tabla-registro-sn">
 
                                         <td><?php echo $registro['nombre_mayorista']?></td>
@@ -192,7 +191,7 @@ include_once 'includes/funciones/seciones.php';
                                         <td><?php echo $registro['costo_registro']?></td>
                                         <td><?php echo $registro['observaciones_registro']?></td>
                                 <div class="campo-enviar">
-   
+
                                         <td class="acciones">
                                             <a href="editar_sn?id=<?php echo $registro['id_registro_datos']?>" class="btn btn-editar">
                                                 <i class="fas fa-pen-square"></i>
@@ -206,19 +205,21 @@ include_once 'includes/funciones/seciones.php';
                                     </tr>
                                     <?php    }
                     } ?>  <!-- CIERRE CONDICIONAL IF -->
-                    
-                    
-                        
-                        
+
+
+
+
 
                 <tbody>
             </table>
         </div>
-    
+
 
     </section>
 
-</div>
+
+</body>
+
 
 
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>

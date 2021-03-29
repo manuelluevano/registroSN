@@ -29,5 +29,5 @@
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body class="<?php echo obtenerPaginaActual(); ?>">
+<body class="<?php echo obtenerPaginaActual(); ?> contenedor">
   

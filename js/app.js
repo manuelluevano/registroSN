@@ -28,7 +28,7 @@ function eventListeners() {
     
    
 
-    }
+}
 
 
 function leerFormulario(e) {
@@ -407,3 +407,5 @@ function mostrarNotificaciones(mensaje, imagen){
 
 
  }
+
+
