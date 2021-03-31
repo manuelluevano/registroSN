@@ -30,7 +30,7 @@
 
         try{
             return $conn->query(" SELECT id_registro_datos, nombre_mayorista, modelo_iphone, numero_serie, 
-            metodo_aplicado, fecha_registro, costo_registro, observaciones_registro FROM registroDatos");
+            metodo_aplicado, fecha_registro, costo_registro, observaciones_registro, garantia_servicio FROM registroDatos");
         } catch(Exception $e){
             echo "Error!" . $e->getMessage() . "<br>";
             return false;
@@ -73,6 +73,7 @@
     }
 
 
+
     //// LOGIN ///
     // con esto, detectamos la pagina actual
 
@@ -88,6 +89,8 @@
 
     ///// unclock  ///
    
+
+
    
 
     

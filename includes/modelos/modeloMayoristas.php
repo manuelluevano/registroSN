@@ -15,14 +15,15 @@
            $fecha = filter_var($_POST['fecha'], FILTER_SANITIZE_STRING);
            $costo = filter_var($_POST['costo'], FILTER_SANITIZE_NUMBER_INT);
            $observaciones = filter_var($_POST['observaciones'], FILTER_SANITIZE_STRING);
-           
+           $garantia_servicio = filter_var($_POST['garantia_servicio'], FILTER_SANITIZE_STRING);
+
 
           try{
 
                $stmt = $conn->prepare( "INSERT INTO registroDatos (nombre_mayorista, modelo_iphone, numero_serie,
-               metodo_aplicado, fecha_registro, costo_registro, observaciones_registro) VALUES (?,?,?,?,?,?,?) ");
-               $stmt->bind_param("sssssis", $nombreMayorista, $modeloIphone,$numeroSerie, $metodo,
-                                  $fecha, $costo, $observaciones);
+               metodo_aplicado, fecha_registro, costo_registro, observaciones_registro, garantia_servicio) VALUES (?,?,?,?,?,?,?,?) ");
+               $stmt->bind_param("sssssiss", $nombreMayorista, $modeloIphone,$numeroSerie, $metodo,
+                                  $fecha, $costo, $observaciones, $garantia_servicio);
                $stmt->execute();
                // $respuesta = array(
                //      'respuesta' => 'correcto',
@@ -39,6 +40,7 @@
                               'fecha' => $fecha,
                               'costo' => $costo,
                               'observaciones' => $observaciones,
+                              'garantia_servicio' => $garantia_servicio,
                               'id_insertado' => $stmt->insert_id
                          )
                     );

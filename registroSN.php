@@ -27,7 +27,7 @@ include_once 'includes/funciones/seciones.php';
 
 
     
-    <div class="campos ">
+    <div class="campos">
 
         <div class="campo">
             <label for="mayorista">Mayorista:</label>
@@ -120,13 +120,23 @@ include_once 'includes/funciones/seciones.php';
         </div>
 
         <div class="campo">
-                <label for="">Observaciones:</label>
+                <label for="">Observacionss:</label>
                 <input type="text" placeholder="Escribe aqui tus comentarios" id="observaciones">
         </div>
+
+        <div class="campo">
+                <label for="">garantia servicio</label>
+                <select name="garantia_servicio" id="garantia_servicio">
+                    <option value="30 dias">30 dias</option>
+                    <option value="60 dias">60 dias</option>
+                </select>
+
+        </div>
+
     </div>
 
         <div class="campo-enviar">
-                <input type="submit" value="Guardar" id="accion" class="btn btn-success">
+                <input type="submit" value="Guardar" id="accion" class="">
         </div>
 
         </form>
@@ -159,6 +169,7 @@ include_once 'includes/funciones/seciones.php';
                     <th>Fecha: </th>
                     <th>Costo: </th>
                     <th>Observaciones: </th>
+                    <th>Garantia: </th>
                     <th>Acciones</th>
 
                 </tr>
@@ -171,6 +182,7 @@ include_once 'includes/funciones/seciones.php';
                     <?php $registros = obtenerRegistrosSN();
 
 
+
                     //Validar que existan datos
                     if($registros->num_rows){
 
@@ -178,7 +190,7 @@ include_once 'includes/funciones/seciones.php';
 
                             while($registro = mysqli_fetch_assoc($registros)){
 
-                            //var_dump($registro); ?>
+                            //var_dump($registro['garantia']); ?>
 
 
                                     <tr class="tabla-registro-sn">
@@ -190,6 +202,8 @@ include_once 'includes/funciones/seciones.php';
                                         <td><?php echo $registro['fecha_registro']?></td>
                                         <td><?php echo $registro['costo_registro']?></td>
                                         <td><?php echo $registro['observaciones_registro']?></td>
+                                        <td><?php echo $registro['garantia_servicio']?></td>
+                                        
                                 <div class="campo-enviar">
 
                                         <td class="acciones">
@@ -228,6 +242,7 @@ include_once 'includes/funciones/seciones.php';
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <!-- Sweet alert -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
   <script src="js/app2.js"></script>
   <script src="https://kit.fontawesome.com/04730c9c8a.js" crossorigin="anonymous"></script>

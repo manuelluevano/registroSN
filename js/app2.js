@@ -31,6 +31,7 @@ const listaRegistros = document.querySelector('#listado_SN tbody');
          fecha = document.querySelector('#fecha').value,
          costo = document.querySelector('#costo').value,
          observaciones = document.querySelector('#observaciones').value,
+         garantia_servicio = document.querySelector('#garantia_servicio').value,
          accion = document.querySelector('#accion').value;
 
 
@@ -39,7 +40,7 @@ const listaRegistros = document.querySelector('#listado_SN tbody');
       mostrarNotificaciones2('Completa todos los campos', 'alert-warning');   
   }else{
       //Pasa la validación || hacemos el llamado a ajax
-       //console.log(nombreMayorista);
+       console.log(nombreMayorista);
       
 
       const infoRegistroSN = new FormData();
@@ -50,6 +51,7 @@ const listaRegistros = document.querySelector('#listado_SN tbody');
             infoRegistroSN.append('fecha', fecha);
             infoRegistroSN.append('costo', costo);
             infoRegistroSN.append('observaciones', observaciones);
+            infoRegistroSN.append('garantia_servicio', garantia_servicio);
             infoRegistroSN.append('accion', accion);
                   
    
@@ -77,7 +79,8 @@ const listaRegistros = document.querySelector('#listado_SN tbody');
     }
 
         
-   }}
+}}
+
 
 
 
@@ -93,13 +96,13 @@ function insertarDB(infoRegistroSN){
     //  Pasar los datos a ajax
     xhr.onload = function(){
       if(this.status === 200 ){
-          console.log(JSON.parse( xhr.responseText) );
+          //console.log(JSON.parse( xhr.responseText) );
           
         // Leemos la respuesta de php
 
         const respuesta = JSON.parse( xhr.responseText);
 
-        console.log(respuesta.nombreMayorista);
+        //console.log(respuesta.nombreMayorista);
           
 
         // crear un nuevo elemento en la tabla 
@@ -114,6 +117,7 @@ function insertarDB(infoRegistroSN){
             <td>${respuesta.datos.fecha}</td>
             <td>${respuesta.datos.costo}</td>
             <td>${respuesta.datos.observaciones}</td>
+            <td>${respuesta.datos.garantia_servicio}</td>
 
         `;
 
@@ -173,6 +177,41 @@ function insertarDB(infoRegistroSN){
 }
 
 
+// actualizar registros
+function actualizarRegistro(infoRegistroSN){
+  // console.log(...infoContacto);
+
+    // Crear objeto ajax
+    const xhr = new XMLHttpRequest();
+    
+    // abrir la conexion
+    xhr.open('POST', 'includes/modelos/modeloMayoristas.php', true);
+
+    //leer la respuesta
+    xhr.onload = function()  {  
+        if(this.status === 200){
+            const resultado = JSON.parse(xhr.responseText);
+
+            // console.log(respuesta);
+            if(resultado.respuesta === 'correcto'){
+                // Mostar noptificación si es correcto
+                mostrarNotificaciones('Contacto Editado correctamente', 'success');
+
+             }else{
+                // Mostar noptificación si NO es correcto
+                mostrarNotificaciones('No editaste ningun dato', 'errro');
+             }
+
+             // Después de 3 segundos redireccionar a la página de inicio
+             setTimeout(() => {
+                 window.location.href = 'index.php';
+             }, 4000);
+        }
+    }
+    //enviar la peticion
+    xhr.send(infoRegistroSN);
+}
+
 function mostrarNotificaciones(mensaje, imagen){
     var mensaje,
          imagen;
@@ -224,4 +263,11 @@ function mostrarNotificaciones2(mensaje, clase){
  
 
 
+
+
+
 }
+
+
+// CUENTA REGRESIVA
+// This is an example with default parameters

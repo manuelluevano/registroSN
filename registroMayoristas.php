@@ -92,7 +92,7 @@ echo "</pre>"
                                         
                                         
                     <td class="acciones">
-                      <a href="editarMayoristas.php?id=<?php echo $mayorista['id']; ?>" class="btn btn-editar">
+                      <a href="editarMayoristas.php?id=<?php echo $mayorista['id']; ?>" class="">
                         <i class="fas fa-pen-square"></i>
                       </a>
 
